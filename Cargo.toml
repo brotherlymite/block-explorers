@@ -30,7 +30,7 @@ thiserror = "1.0"
 tracing = "0.1.37"
 semver = "1.0"
 
-foundry-compilers = { git = "https://github.com/Moonsong-Labs/compilers", branch = "elfedy-zksolc", optional = true }
+foundry-compilers = { git = "https://github.com/Moonsong-Labs/compilers", branch = "zksync-v0.3.9", optional = true }
 
 [dev-dependencies]
 tempfile = "3.8"
