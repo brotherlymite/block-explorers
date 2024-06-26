@@ -1,6 +1,7 @@
 use crate::{Client, Response, Result};
 use alloy_primitives::Address;
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 use std::collections::HashMap;
 
 /// Arguments for verifying contracts
@@ -10,7 +11,7 @@ pub struct VerifyContract {
     #[serde(rename = "contractaddress")]
     pub address: Address,
     #[serde(rename = "sourceCode")]
-    pub source: String,
+    pub source: Value,
     #[serde(rename = "codeformat")]
     pub code_format: CodeFormat,
     /// if codeformat=solidity-standard-json-input, then expected as
@@ -54,7 +55,7 @@ impl VerifyContract {
     pub fn new(
         address: Address,
         contract_name: String,
-        source: String,
+        source: Value,
         compiler_version: String,
     ) -> Self {
         Self {
@@ -179,7 +180,7 @@ impl Client {
             "checkverifystatus",
             HashMap::from([("guid", guid.as_ref())]),
         );
-        self.post_form(&body).await
+        self.get(&body).await.and_then(|res| self.sanitize_response(res))
     }
 
     /// Submit Proxy Contract for Verification

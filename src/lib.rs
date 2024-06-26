@@ -214,7 +214,7 @@ impl Client {
         let response = self
             .client
             .post(self.etherscan_api_url.clone())
-            .form(form)
+            .json(form)
             .send()
             .await?
             .text()
