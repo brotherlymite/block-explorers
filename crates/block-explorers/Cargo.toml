@@ -37,7 +37,7 @@ thiserror = "1.0"
 tracing = "0.1.37"
 semver = "1.0"
 
-foundry-compilers = { version = "0.10", optional = true }
+foundry-compilers = { git = "https://github.com/Moonsong-Labs/compilers", branch = "zksync-v0.10.0" }
 
 [dev-dependencies]
 tempfile = "3.8"
