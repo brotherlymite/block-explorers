@@ -8,7 +8,7 @@ members = [
 resolver = "2"
 
 [workspace.dependencies]
-alloy-chains = "0.1"
+alloy-chains = { git="https://github.com/alloy-rs/chains", rev = "03246dba366b32d1a7e4429a7c9cc25ba2b2a550"}
 alloy-primitives = { version = "0.7", default-features = false, features = ["std", "serde"] }
 alloy-rpc-types-eth = "0.1"
 alloy-eips = "0.1"
